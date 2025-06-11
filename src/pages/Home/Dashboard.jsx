@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import DashboardLayout from "../../components/layouts/DashboardLayout";
-import { LuCirclePlus, LuLoader2, LuRefreshCw } from "react-icons/lu";
+import { LuCirclePlus, LuLoader, LuRefreshCw } from "react-icons/lu";
 import moment from "moment";
 import ResumeSummaryCard from "../../components/Cards/ResumeSummaryCard";
 import CreateResumeForm from "./CreateResumeForm";
@@ -63,7 +63,7 @@ const Dashboard = () => {
 
   const renderLoadingState = () => (
     <div className="col-span-full flex flex-col items-center justify-center py-12">
-      <LuLoader2 className="text-4xl text-purple-500 animate-spin mb-4" />
+      <LuLoader className="text-4xl text-purple-500 animate-spin mb-4" />
       <p className="text-gray-600">Loading your resumes...</p>
     </div>
   );
