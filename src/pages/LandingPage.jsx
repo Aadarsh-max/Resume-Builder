@@ -71,7 +71,7 @@ const LandingPage = () => {
             <ProfileInfoCard />
           ) : (
             <button
-              className="bg-white/80 backdrop-blur-sm text-sm font-semibold text-gray-800 px-7 py-2.5 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 border border-gray-200/50"
+              className="group bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold px-10 py-4 rounded-xl hover:from-purple-700 hover:to-blue-700 transition-all duration-300 cursor-pointer shadow-2xl hover:shadow-purple-500/25 transform hover:-translate-y-1 hover:scale-105 relative overflow-hidden"
               onClick={() => setOpenAuthModal(true)}
             >
               Login / Sign Up
@@ -281,7 +281,7 @@ const LandingPage = () => {
               </p>
               <button
                 onClick={handleCTA}
-                className="bg-white text-purple-600 font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl"
+                className="bg-white text-purple-600 font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl cursor-pointer"
               >
                 Start Building Now
               </button>
