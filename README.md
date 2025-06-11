@@ -32,28 +32,4 @@ A powerful and easy-to-use **Resume Builder** built with the **MERN stack** (Mon
 
 ---
 
-## 📸 Screenshots
 
-<!-- Replace with actual screenshots -->
-<p align="center">
-  <img src="./screenshots/form.png" alt="Form UI" width="600"/>
-  <img src="./screenshots/template-preview.png" alt="Template Preview" width="600"/>
-  <img src="./screenshots/pdf-export.png" alt="PDF Export" width="600"/>
-</p>
-
----
-
-## 🔧 Getting Started
-
-### 📦 Prerequisites
-
-- Node.js and npm installed
-- MongoDB Atlas account (or local MongoDB)
-
-### 🛠️ Installation
-
-1. **Clone the repository**
-
-```bash
-git clone https://github.com/your-username/resume-builder.git
-cd resume-builder
