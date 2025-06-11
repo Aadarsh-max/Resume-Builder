@@ -101,3 +101,10 @@ export const dataUrltoFile = (dataUrl, fileName) => {
 
     return new File([u8arr], fileName, {type: mime})
 }
+export const getInitials = (name) => {
+  return name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase();
+};
