@@ -2,29 +2,23 @@ import React, { useState, useContext } from "react";
 import Input from "../../components/Inputs/Input";
 import { useNavigate } from "react-router-dom";
 import { validateEmail } from "../../utils/helper";
-//import ProfilePhotoSelector from "../../components/Inputs/ProfilePhotoSelector";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import { UserContext } from "../../context/userContext";
-//import uploadImage from "../../utils/uploadImage";
 import { getInitials } from "../../utils/helper";
 
 const SignUp = ({ setCurrentPage }) => {
-  //const [profilePic, setProfilePic] = useState(null);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false); // 🆕 loading state
 
   const { updateUser } = useContext(UserContext);
   const navigate = useNavigate();
 
-  //Handle SignUp Form Submit
   const handleSignUp = async (e) => {
     e.preventDefault();
-
-    //let profileImageUrl = "";
 
     if (!fullName) {
       setError("Please enter full name.");
@@ -42,16 +36,13 @@ const SignUp = ({ setCurrentPage }) => {
     }
 
     setError("");
-    //API call
+    setLoading(true); // 🆕 Start loading
 
     try {
-      //upload image
-
       const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
         name: fullName,
         email,
         password,
-        //profileImageUrl,
       });
 
       const { token } = response.data;
@@ -67,6 +58,8 @@ const SignUp = ({ setCurrentPage }) => {
       } else {
         setError("Something went wrong. Please try again.");
       }
+    } finally {
+      setLoading(false); // 🆕 Stop loading
     }
   };
 
@@ -85,6 +78,7 @@ const SignUp = ({ setCurrentPage }) => {
             label="Full Name"
             placeholder="John"
             type="text"
+            disabled={loading}
           />
           {fullName && (
             <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-lg font-bold my-2">
@@ -98,6 +92,7 @@ const SignUp = ({ setCurrentPage }) => {
             label="Email Address"
             placeholder="john@example.com"
             type="text"
+            disabled={loading}
           />
 
           <Input
@@ -106,13 +101,14 @@ const SignUp = ({ setCurrentPage }) => {
             label="Password"
             placeholder="Min 8 Characters"
             type="password"
+            disabled={loading}
           />
         </div>
 
         {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
 
-        <button type="submit" className="btn-primary">
-          SIGN UP
+        <button type="submit" className="btn-primary" disabled={loading}>
+          {loading ? "Signing up..." : "SIGN UP"}
         </button>
 
         <p className="text-[13px] text-slate-800 mt-3">
@@ -120,8 +116,9 @@ const SignUp = ({ setCurrentPage }) => {
           <button
             className="font-medium text-primary underline cursor-pointer"
             onClick={() => {
-              setCurrentPage("login");
+              if (!loading) setCurrentPage("login");
             }}
+            disabled={loading}
           >
             Login
           </button>
