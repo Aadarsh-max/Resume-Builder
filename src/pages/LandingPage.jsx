@@ -3,7 +3,6 @@ import Login from "./Auth/Login";
 import SignUp from "./Auth/SignUp";
 import Modal from "../components/Modal";
 
-import HERO_IMG from "../assets/img1.png";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/userContext";
 import ProfileInfoCard from "../components/Cards/ProfileInfoCard";
@@ -61,7 +60,7 @@ const LandingPage = () => {
             </button>
           </div>
           <div className="w-full md:w-1/2">
-            <img src={HERO_IMG} alt="Hero img" className="w-full rounded-lg" />
+            <img src="/img1.png" alt="Hero img" className="w-full rounded-lg" />
           </div>
         </div>
 
