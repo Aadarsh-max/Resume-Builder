@@ -1,13 +1,13 @@
 export const resumeTemplates = [
-  { id: "01", thumbnailImg: "./Template1.png", colorPalleteCode: "themeOne" },
+  { id: "01", thumbnailImg: "/Template1.png", colorPalleteCode: "themeOne" },
   {
     id: "02",
-    thumbnailImg: "./Template2.png",
+    thumbnailImg: "/Template2.png",
     colorPalleteCode: "themeTwo",
   },
   {
     id: "03",
-    thumbnailImg: "./Template3.png",
+    thumbnailImg: "/Template3.png",
     colorPalleteCode: "themeThree",
   },
 ];
