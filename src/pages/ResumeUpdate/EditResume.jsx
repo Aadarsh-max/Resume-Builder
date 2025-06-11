@@ -15,7 +15,6 @@ import { useReactToPrint} from "react-to-print";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import StepProgress from "../../components/StepProgress";
-import ProfileInfoCard from "../../components/Cards/ProfileInfoCard";
 import ProfileInfoForm from "./Forms/ProfileInfoForm";
 import ContactInfoForm from "./Forms/ContactInfoForm";
 import WorkExperienceForm from "./Forms/WorkExperienceForm";
@@ -25,7 +24,6 @@ import ProjectsDetailForm from "./Forms/ProjectsDetailForm";
 import SkillsInfoForm from "./Forms/SkillsInfoForm";
 import AdditionalInfoForm from "./Forms/AdditionalInfoForm";
 import RenderResume from "../../components/ResumeTemplates/RenderResume";
-import { captureElementAsImage, dataUrltoFile, fixTailwindColors } from "../../utils/helper";
 import ThemeSelector from "./ThemeSelector";
 import Modal from "../../components/Modal";
 
@@ -467,71 +465,27 @@ const EditResume = () => {
         }
     };
 
-    //upload thumbnail and resume profile image
-    const uploadResumeImages = async () => {
-        try{
-            setIsLoading(true);
-
-            fixTailwindColors(resumeRef.current);
-            const imageDataUrl = await captureElementAsImage(resumeRef.current);
-
-            const thumbnailFile = dataUrltoFile(
-                imageDataUrl,
-                `resume-${resumeId}.png`
-            );
-
-            //const profileImageFile = resumeData?.profileInfo?.profileImg || null;
-
-            const formData = new FormData();
-            //if (profileImageFile) formData.append("profileImage", profileImageFile);
-            if(thumbnailFile) formData.append("thumbnail", thumbnailFile);
-
-            const uploadResponse = await axiosInstance.put(
-                API_PATHS.RESUME.UPLOAD_IMAGES(resumeId),
-                formData,
-                {headers: {"Content-Type" : "multipart/form-data"}}
-            );
-
-            const {thumbnailLink} = uploadResponse.data;
-
-            console.log("RESUME_DATA__", resumeData);
-
-            await updateResumeDetails(thumbnailLink);
-
-            
-            navigate("/dashboard");
-        }catch(error){
-            //console.error("Error uploading images:", error);
-            console.log(error.response?.data || error.message);
-            toast.error("Failed to upload thumbnail");
-        }finally{
-            setIsLoading(false);
-        }
-    };
-
-    const updateResumeDetails = async (thumbnailLink) => {
-    setIsLoading(true);
+    
+    const updateResumeDetails = async () => {
     try {
-        const updatedData = {
-            ...resumeData,
-            ...(thumbnailLink && { thumbnailLink }),
-        };
+        setIsLoading(true);
 
         const response = await axiosInstance.put(
             API_PATHS.RESUME.UPDATE(resumeId),
-            updatedData
+            { ...resumeData }
         );
 
         toast.success("Resume updated successfully.");
         return response.data;
-    } catch (err) {
-        console.error("Error updating resume:", err);
+    } catch (error) {
+        console.error("Error updating resume:", error);
         toast.error("Failed to update resume.");
         return null;
     } finally {
         setIsLoading(false);
     }
 };
+
 
 
     //Delete resume
