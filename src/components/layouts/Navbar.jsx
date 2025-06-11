@@ -4,14 +4,16 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <div className="h-16 bg-white border-b border-gray-200/50 backdrop-blur-[2px] sticky top-0 z-30">
-            <div className="container mx-auto px-6 md:px-12 flex items-center justify-between gap-5">
+        <div className="w-full border-b border-gray-200 bg-white py-3">
+            <div className="container mx-auto flex items-center justify-between px-6 md:px-12">
+                {/* Logo / Title */}
                 <Link to="/dashboard">
-                    <h2 className="text-lg md:text-xl font-medium text-black leading-5">
+                    <h1 className="text-xl font-semibold tracking-tight text-gray-900">
                         Resume Builder
-                    </h2>
+                    </h1>
                 </Link>
 
+                {/* Profile Info */}
                 <ProfileInfoCard />
             </div>
         </div>
