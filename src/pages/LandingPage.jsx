@@ -28,12 +28,14 @@ const LandingPage = () => {
   };
 
   const FloatingElement = ({ delay = 0, duration = 3 }) => (
-    <div 
+    <div
       className="absolute w-20 h-20 bg-gradient-to-br from-purple-400/20 to-blue-400/20 rounded-full blur-xl animate-pulse"
       style={{
         animationDelay: `${delay}s`,
         animationDuration: `${duration}s`,
-        transform: `translate(${Math.random() * 100}px, ${Math.random() * 100}px)`
+        transform: `translate(${Math.random() * 100}px, ${
+          Math.random() * 100
+        }px)`,
       }}
     />
   );
@@ -45,13 +47,23 @@ const LandingPage = () => {
         <FloatingElement delay={0} duration={4} />
         <FloatingElement delay={1} duration={5} />
         <FloatingElement delay={2} duration={3} />
-        <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-gradient-to-r from-purple-300/10 to-pink-300/10 rounded-full animate-bounce" style={{ animationDuration: '6s' }} />
-        <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-gradient-to-r from-blue-300/10 to-cyan-300/10 rounded-full animate-pulse" style={{ animationDuration: '4s' }} />
+        <div
+          className="absolute top-1/4 right-1/4 w-32 h-32 bg-gradient-to-r from-purple-300/10 to-pink-300/10 rounded-full animate-bounce"
+          style={{ animationDuration: "6s" }}
+        />
+        <div
+          className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-gradient-to-r from-blue-300/10 to-cyan-300/10 rounded-full animate-pulse"
+          style={{ animationDuration: "4s" }}
+        />
       </div>
 
       <div className="container mx-auto px-4 py-6 relative z-10">
         {/* Header */}
-        <header className={`flex justify-between items-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
+        <header
+          className={`flex justify-between items-center mb-16 transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+          }`}
+        >
           <div className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
             Resume Builder
           </div>
@@ -69,7 +81,13 @@ const LandingPage = () => {
 
         {/* Hero Content */}
         <div className="flex flex-col items-center text-center">
-          <div className={`max-w-4xl transition-all duration-1200 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div
+            className={`max-w-4xl transition-all duration-1200 delay-300 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
             <h1 className="text-6xl md:text-7xl font-bold mb-8 leading-tight">
               Build Your{" "}
               <span className="relative inline-block">
@@ -79,58 +97,109 @@ const LandingPage = () => {
                 <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-lg blur opacity-20 animate-pulse"></div>
               </span>
               <br />
-              <span className={`inline-block transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}>
+              <span
+                className={`inline-block transition-all duration-1000 delay-700 ${
+                  isVisible
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-4"
+                }`}
+              >
                 Effortlessly
               </span>
             </h1>
-            
-            <p className={`text-xl text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              Craft a standout resume in minutes with our smart and intuitive resume builder. 
-              Stand out from the crowd with professional designs and AI-powered suggestions.
+
+            <p
+              className={`text-xl text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
+              }`}
+            >
+              Craft a standout resume in minutes with our smart and intuitive
+              resume builder. Stand out from the crowd with professional designs
+              and AI-powered suggestions.
             </p>
-            
-            <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+
+            <div
+              className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-1000 delay-700 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              }`}
+            >
               <button
                 className="group bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold px-10 py-4 rounded-xl hover:from-purple-700 hover:to-blue-700 transition-all duration-300 cursor-pointer shadow-2xl hover:shadow-purple-500/25 transform hover:-translate-y-1 hover:scale-105 relative overflow-hidden"
                 onClick={handleCTA}
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Get Started Free
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  <svg
+                    className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
                   </svg>
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
-              
-              <button className="text-gray-600 font-medium px-6 py-4 rounded-xl hover:bg-white/60 hover:text-gray-800 transition-all duration-300 backdrop-blur-sm">
-                Watch Demo
               </button>
             </div>
           </div>
 
           {/* Animated Resume Preview Cards */}
-          <div className={`mt-20 relative transition-all duration-1500 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div
+            className={`mt-20 relative transition-all duration-1500 delay-900 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-12"
+            }`}
+          >
             <div className="flex justify-center space-x-4 perspective-1000">
               {[...Array(3)].map((_, i) => (
                 <div
                   key={i}
-                  className={`w-48 h-64 bg-white rounded-lg shadow-xl transform rotate-${i === 0 ? '-12' : i === 1 ? '0' : '12'} hover:rotate-0 transition-all duration-500 hover:scale-105 hover:z-20 relative`}
+                  className={`w-48 h-64 bg-white rounded-lg shadow-xl transform rotate-${
+                    i === 0 ? "-12" : i === 1 ? "0" : "12"
+                  } hover:rotate-0 transition-all duration-500 hover:scale-105 hover:z-20 relative`}
                   style={{
                     animationDelay: `${i * 0.2}s`,
-                    zIndex: i === 1 ? 10 : 5 - Math.abs(i - 1)
+                    zIndex: i === 1 ? 10 : 5 - Math.abs(i - 1),
                   }}
                 >
                   <div className="p-4 h-full flex flex-col">
                     <div className="h-3 bg-gradient-to-r from-purple-300 to-blue-300 rounded mb-3 animate-pulse"></div>
                     <div className="space-y-2 flex-1">
-                      <div className="h-2 bg-gray-200 rounded animate-pulse" style={{ animationDelay: `${i * 0.1}s` }}></div>
-                      <div className="h-2 bg-gray-200 rounded w-3/4 animate-pulse" style={{ animationDelay: `${i * 0.1 + 0.1}s` }}></div>
-                      <div className="h-2 bg-gray-200 rounded w-1/2 animate-pulse" style={{ animationDelay: `${i * 0.1 + 0.2}s` }}></div>
+                      <div
+                        className="h-2 bg-gray-200 rounded animate-pulse"
+                        style={{ animationDelay: `${i * 0.1}s` }}
+                      ></div>
+                      <div
+                        className="h-2 bg-gray-200 rounded w-3/4 animate-pulse"
+                        style={{ animationDelay: `${i * 0.1 + 0.1}s` }}
+                      ></div>
+                      <div
+                        className="h-2 bg-gray-200 rounded w-1/2 animate-pulse"
+                        style={{ animationDelay: `${i * 0.1 + 0.2}s` }}
+                      ></div>
                       <div className="mt-4 space-y-1">
-                        <div className="h-1.5 bg-gray-100 rounded animate-pulse" style={{ animationDelay: `${i * 0.1 + 0.3}s` }}></div>
-                        <div className="h-1.5 bg-gray-100 rounded w-4/5 animate-pulse" style={{ animationDelay: `${i * 0.1 + 0.4}s` }}></div>
-                        <div className="h-1.5 bg-gray-100 rounded w-3/5 animate-pulse" style={{ animationDelay: `${i * 0.1 + 0.5}s` }}></div>
+                        <div
+                          className="h-1.5 bg-gray-100 rounded animate-pulse"
+                          style={{ animationDelay: `${i * 0.1 + 0.3}s` }}
+                        ></div>
+                        <div
+                          className="h-1.5 bg-gray-100 rounded w-4/5 animate-pulse"
+                          style={{ animationDelay: `${i * 0.1 + 0.4}s` }}
+                        ></div>
+                        <div
+                          className="h-1.5 bg-gray-100 rounded w-3/5 animate-pulse"
+                          style={{ animationDelay: `${i * 0.1 + 0.5}s` }}
+                        ></div>
                       </div>
                     </div>
                   </div>
@@ -140,7 +209,11 @@ const LandingPage = () => {
           </div>
         </div>
 
-        <section className={`mt-32 transition-all duration-1000 delay-1100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <section
+          className={`mt-32 transition-all duration-1000 delay-1100 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
             Features That Make You Shine
           </h2>
@@ -148,24 +221,27 @@ const LandingPage = () => {
             {[
               {
                 title: "Easy Editing",
-                description: "Update your resume sections with live preview and instant formatting.",
+                description:
+                  "Update your resume sections with live preview and instant formatting.",
                 icon: "✏️",
-                delay: "0s"
+                delay: "0s",
               },
               {
-                title: "Beautiful Templates", 
-                description: "Choose from modern, professional templates that are easy to customize.",
+                title: "Beautiful Templates",
+                description:
+                  "Choose from modern, professional templates that are easy to customize.",
                 icon: "🎨",
-                delay: "0.2s"
+                delay: "0.2s",
               },
               {
                 title: "One-Click Export",
-                description: "Download your resume instantly as a high-quality PDF with one click.",
+                description:
+                  "Download your resume instantly as a high-quality PDF with one click.",
                 icon: "📄",
-                delay: "0.4s"
-              }
+                delay: "0.4s",
+              },
             ].map((feature, index) => (
-              <div 
+              <div
                 key={index}
                 className="group bg-white/70 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/50 relative overflow-hidden"
                 style={{ animationDelay: feature.delay }}
@@ -188,7 +264,11 @@ const LandingPage = () => {
         </section>
 
         {/* Call to Action Section */}
-        <section className={`mt-32 mb-16 text-center transition-all duration-1000 delay-1300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <section
+          className={`mt-32 mb-16 text-center transition-all duration-1000 delay-1300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-12 text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative z-10">
@@ -196,7 +276,8 @@ const LandingPage = () => {
                 Ready to Build Your Perfect Resume?
               </h2>
               <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-                Join thousands of professionals who have landed their dream jobs with our resume builder.
+                Join thousands of professionals who have landed their dream jobs
+                with our resume builder.
               </p>
               <button
                 onClick={handleCTA}
@@ -227,7 +308,8 @@ const LandingPage = () => {
 
       <style jsx>{`
         @keyframes gradient-x {
-          0%, 100% {
+          0%,
+          100% {
             background-position: 0% 50%;
           }
           50% {

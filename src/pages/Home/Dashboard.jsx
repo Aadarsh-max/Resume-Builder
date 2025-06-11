@@ -22,7 +22,7 @@ const Dashboard = () => {
     try {
       if (showRefreshLoader) setRefreshing(true);
       setError(null);
-      
+
       const response = await axiosInstance.get(API_PATHS.RESUME.GET_ALL);
       setAllResumes(response.data.resumes);
     } catch (error) {
@@ -72,7 +72,11 @@ const Dashboard = () => {
     <div className="col-span-full flex flex-col items-center justify-center py-12">
       <div className="text-red-500 mb-4">
         <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+          <path
+            fillRule="evenodd"
+            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+            clipRule="evenodd"
+          />
         </svg>
       </div>
       <p className="text-gray-600 mb-4">{error}</p>
@@ -81,7 +85,9 @@ const Dashboard = () => {
         disabled={refreshing}
         className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-colors"
       >
-        <LuRefreshCw className={`text-sm ${refreshing ? 'animate-spin' : ''}`} />
+        <LuRefreshCw
+          className={`text-sm ${refreshing ? "animate-spin" : ""}`}
+        />
         Try Again
       </button>
     </div>
@@ -90,13 +96,24 @@ const Dashboard = () => {
   const renderEmptyState = () => (
     <div className="col-span-full flex flex-col items-center justify-center py-12">
       <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
-        <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        <svg
+          className="w-8 h-8 text-gray-400"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+          />
         </svg>
       </div>
       <h3 className="text-lg font-medium text-gray-900 mb-2">No resumes yet</h3>
       <p className="text-gray-500 text-center mb-6 max-w-sm">
-        Create your first resume to get started with building your professional profile.
+        Create your first resume to get started with building your professional
+        profile.
       </p>
       <button
         onClick={() => setOpenCreateModal(true)}
@@ -134,18 +151,20 @@ const Dashboard = () => {
 
   return (
     <DashboardLayout>
-      <div className="pt-1 pb-6 px-4 md:px-0">
+      {/* ⬇⬇⬇ Padding adjusted here only */}
+      <div className="pt-1 pb-6 px-6 md:px-12">
         {/* Header Section */}
         <div className="flex justify-between items-center mb-6">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">My Resumes</h1>
             {allResumes && allResumes.length > 0 && (
               <p className="text-gray-600 mt-1">
-                {allResumes.length} resume{allResumes.length !== 1 ? 's' : ''} created
+                {allResumes.length} resume{allResumes.length !== 1 ? "s" : ""}{" "}
+                created
               </p>
             )}
           </div>
-          
+
           {allResumes && allResumes.length > 0 && (
             <button
               onClick={handleRefresh}
@@ -153,7 +172,9 @@ const Dashboard = () => {
               className="flex items-center gap-2 px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors disabled:opacity-50"
               title="Refresh resumes"
             >
-              <LuRefreshCw className={`text-sm ${refreshing ? 'animate-spin' : ''}`} />
+              <LuRefreshCw
+                className={`text-sm ${refreshing ? "animate-spin" : ""}`}
+              />
               <span className="hidden sm:inline">Refresh</span>
             </button>
           )}
